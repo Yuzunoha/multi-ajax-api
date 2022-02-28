@@ -1,5 +1,5 @@
-define bash-c
-	docker-compose exec --user docker app bash -c
+define develop-c
+	docker-compose -f docker-compose-develop.yml exec --user docker app bash -c
 endef
 
 define deploy-c
@@ -10,26 +10,26 @@ define nginxproxy-c
 	docker-compose -f docker-compose-nginxproxy.yml exec -T app bash -c
 endef
 
-up:
-	docker-compose up -d
-ps:
-	docker-compose ps
-down:
-	docker-compose down
-bash:
-	docker-compose exec --user docker app bash
-init:
+develop-up:
+	docker-compose -f docker-compose-develop.yml up -d
+develop-ps:
+	docker-compose -f docker-compose-develop.yml ps
+develop-down:
+	docker-compose -f docker-compose-develop.yml down
+develop-bash:
+	docker-compose -f docker-compose-develop.yml exec --user docker app bash
+develop-init:
 	echo DOCKER_UID=`id -u` > .env
-	docker-compose build --no-cache
-	docker-compose up -d
-	$(bash-c) 'composer install'
-	$(bash-c) 'touch database/database.sqlite'
-	$(bash-c) 'chmod 777 -R storage bootstrap/cache database'
-	$(bash-c) 'php artisan migrate'
-sqlite:
-	$(bash-c) 'sqlite3 database/database.sqlite'
+	docker-compose -f docker-compose-develop.yml build --no-cache
+	docker-compose -f docker-compose-develop.yml up -d
+	$(develop-c) 'composer install'
+	$(develop-c) 'touch database/database.sqlite'
+	$(develop-c) 'chmod 777 -R storage bootstrap/cache database'
+	$(develop-c) 'php artisan migrate'
+develop-sqlite:
+	$(develop-c) 'sqlite3 database/database.sqlite'
 
-deploy:
+deploy-init:
 	docker-compose -f docker-compose-deploy.yml build --no-cache
 	docker-compose -f docker-compose-deploy.yml up -d
 	$(deploy-c) 'composer install'
@@ -43,7 +43,7 @@ deploy-down:
 deploy-phpunit:
 	$(deploy-c) 'vendor/bin/phpunit'
 
-nginxproxy:
+nginxproxy-init:
 	docker-compose -f docker-compose-nginxproxy.yml build --no-cache
 	docker-compose -f docker-compose-nginxproxy.yml up -d
 	$(nginxproxy-c) 'composer install'

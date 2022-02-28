@@ -3,6 +3,7 @@ services:
   app:
     build:
       context: ./docker/app
+      dockerfile: DockerfileDevelop
       args:
         DOCKER_UID: ${DOCKER_UID:-1000}
     volumes:
