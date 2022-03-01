@@ -15,10 +15,10 @@ class TitleSeeder extends Seeder
   public function run()
   {
     $seederUtil = new SeederUtil;
-    $fulltitleArray = $seederUtil->getFulltitleArray();
+    $fulltitleArray = $seederUtil->getTitleArray();
     foreach ($fulltitleArray as $fulltitle) {
       $array[] = ['text' => $fulltitle];
     }
-    DB::table('fulltitles')->insert($array);
+    DB::table('titles')->insert($array);
   }
 }

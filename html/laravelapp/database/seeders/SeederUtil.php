@@ -5,35 +5,7 @@ namespace Database\Seeders;
 class SeederUtil
 {
   // デリミタ:×
-
-  public function getFirsttitleArray()
-  {
-    $fulltitleArray = $this->getFulltitleArray();
-    foreach ($fulltitleArray as $fulltitle) {
-      $a[] = explode('×', $fulltitle)[0];
-    }
-    return $a;
-  }
-
-  public function getSecondtitleArray()
-  {
-    $fulltitleArray = $this->getFulltitleArray();
-    foreach ($fulltitleArray as $fulltitle) {
-      $a[] = explode('×', $fulltitle)[1];
-    }
-    return $a;
-  }
-
-  public function getThirdtitleArray()
-  {
-    $fulltitleArray = $this->getFulltitleArray();
-    foreach ($fulltitleArray as $fulltitle) {
-      $a[] = explode('×', $fulltitle)[2];
-    }
-    return $a;
-  }
-
-  public function getFulltitleArray()
+  public function getTitleArray()
   {
     $raw = $this->getRaw();
     $a = explode(PHP_EOL, $raw);
@@ -164,7 +136,7 @@ class SeederUtil
     116 フクシュウ×ト×シュウフク
     117 ブジョク×ニハ×セツジョク
     118 イツワリ×ノ×イカリ
-    119 ツヨ×イカ×ヨワ×イカ
+    119 ツヨ×イカ×ヨワxイカ
     120 ニセモノ×ト×ホンモノ
     121 ハイボク×ト×メンボク
     122 タテマエ×ト×ナマエ
