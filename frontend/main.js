@@ -3,6 +3,7 @@
 const p = console.log;
 const host = 'http://localhost';
 
+/*
 loginSubmit.onclick = () => {
   fetch(`${host}/login`, {
     method: 'POST',
@@ -137,6 +138,15 @@ repliesPatchSubmit.onclick = () => {
     body: JSON.stringify({
       text: repliesPatchText.value,
     }),
+  })
+    .then((res) => res.json())
+    .then(p);
+};
+*/
+
+firstSubmit.onclick = () => {
+  fetch(`${host}/first/${first_id.value}`, {
+    method: 'GET',
   })
     .then((res) => res.json())
     .then(p);
