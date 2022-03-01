@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ThirdtitleSeeder extends Seeder
+class TitleSeeder extends Seeder
 {
   /**
    * Run the database seeds.
@@ -15,10 +15,10 @@ class ThirdtitleSeeder extends Seeder
   public function run()
   {
     $seederUtil = new SeederUtil;
-    $texts = $seederUtil->getThirdtitleArray();
-    foreach ($texts as $text) {
-      $array[] = ['text' => $text];
+    $fulltitleArray = $seederUtil->getFulltitleArray();
+    foreach ($fulltitleArray as $fulltitle) {
+      $array[] = ['text' => $fulltitle];
     }
-    DB::table('thirdtitles')->insert($array);
+    DB::table('fulltitles')->insert($array);
   }
 }
