@@ -1,5 +1,5 @@
 define develop-c
-	docker-compose -f docker-compose-develop.yml exec --user docker app bash -c
+	docker-compose -f docker-compose-develop.yml exec app bash -c
 endef
 
 define deploy-c
