@@ -14,13 +14,10 @@ class FulltitleSeeder extends Seeder
    */
   public function run()
   {
-    $texts[] = 'a';
-    $texts[] = 'b';
-    $texts[] = 'c';
-    foreach ($texts as $text) {
-      $array[] = [
-        'text' => $text,
-      ];
+    $seederUtil = new SeederUtil;
+    $fulltitleArray = $seederUtil->getFulltitleArray();
+    foreach ($fulltitleArray as $fulltitle) {
+      $array[] = ['text' => $fulltitle];
     }
     DB::table('fulltitles')->insert($array);
   }
