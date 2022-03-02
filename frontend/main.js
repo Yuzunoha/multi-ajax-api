@@ -144,6 +144,24 @@ repliesPatchSubmit.onclick = () => {
 const p = console.log;
 const host = 'http://localhost';
 
+const addOption = (select, value) => {
+  // optionタグを作成する
+  var option = document.createElement('option');
+  // optionタグのテキストをxに設定する
+  option.text = value;
+  // optionタグのvalueをxに設定する
+  option.value = value;
+  // selectタグの子要素にoptionタグを追加する
+  select.appendChild(option);
+};
+
+const init = () => {
+  const num = 24;
+  for (let i = 1; i <= num; i++) {
+    addOption(select1, i);
+  }
+};
+
 const onclickCommon = () => {
   fetch(`${host}/first/${first_id.value}`, {
     method: 'GET',
