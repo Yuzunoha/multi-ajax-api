@@ -1,8 +1,5 @@
 'use strict';
 
-const p = console.log;
-const host = 'http://localhost';
-
 /*
 loginSubmit.onclick = () => {
   fetch(`${host}/login`, {
@@ -144,10 +141,17 @@ repliesPatchSubmit.onclick = () => {
 };
 */
 
-firstSubmit.onclick = () => {
+const p = console.log;
+const host = 'http://localhost';
+
+const onclickCommon = () => {
   fetch(`${host}/first/${first_id.value}`, {
     method: 'GET',
   })
     .then((res) => res.json())
     .then(p);
+};
+
+const run = () => {
+  p('動いた');
 };
