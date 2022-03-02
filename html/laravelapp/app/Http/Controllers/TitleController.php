@@ -35,11 +35,36 @@ class TitleController extends Controller
     if (!$m) {
       $this->utilService->throwHttpResponseException("id: $id は存在しません。");
     }
-    $first_text = $request->first_text;
+
     $a = explode('×', $m->text);
+
+    $first_text = $request->first_text;
     if ($a[0] !== $first_text) {
       $this->utilService->throwHttpResponseException("id: $id, first_text: $first_text の組は存在しません。");
     }
+
     return json_encode($a[1]);
+  }
+
+  public function third($id, Request $request)
+  {
+    $m = Title::find($id);
+    if (!$m) {
+      $this->utilService->throwHttpResponseException("id: $id は存在しません。");
+    }
+
+    $a = explode('×', $m->text);
+
+    $first_text = $request->first_text;
+    if ($a[0] !== $first_text) {
+      $this->utilService->throwHttpResponseException("id: $id, first_text: $first_text の組は存在しません。");
+    }
+
+    $second_text = $request->second_text;
+    if ($a[1] !== $second_text) {
+      $this->utilService->throwHttpResponseException("id: $id, first_text: $first_text, second_text: $second_text の組は存在しません。");
+    }
+
+    return json_encode($a[2]);
   }
 }
