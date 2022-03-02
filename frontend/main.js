@@ -153,8 +153,7 @@ const onclickCommon = () => {
 };
 
 const run = () => {
-  p('動いた');
-  const value = 123;
+  const value = select1.value;
   result1.textContent = value;
 };
 
