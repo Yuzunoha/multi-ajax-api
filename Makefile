@@ -1,5 +1,5 @@
 define deploy-c
-	docker-compose  exec -T app bash -c
+	docker-compose exec -T app bash -c
 endef
 
 init:
