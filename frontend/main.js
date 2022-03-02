@@ -158,17 +158,21 @@ const init = () => {
   }
 };
 
-const onclickCommon = () => {
-  fetch(`${host}/first/${first_id.value}`, {
+const fetchJson = (path, params = {}) => {
+  const queryParams = new URLSearchParams(params);
+  const url = `${host}/${path}?${queryParams}`;
+  p(url);
+  return fetch(url, {
     method: 'GET',
-  })
-    .then((res) => res.json())
-    .then(p);
+    headers: { 'Content-Type': 'application/json' },
+  }).then((res) => res.json());
 };
 
-const run = () => {
-  const value = select1.value;
-  result1.textContent = value;
+const run = async () => {
+  const id = select1.value;
+  const path = `first/${id}`;
+  const json = await fetchJson(path);
+  result1.textContent = json;
 };
 
 //Ajaxで情報を取得
