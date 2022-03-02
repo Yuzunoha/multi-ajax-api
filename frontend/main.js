@@ -145,13 +145,9 @@ const p = console.log;
 const host = 'http://localhost';
 
 const addOption = (select, value) => {
-  // optionタグを作成する
-  var option = document.createElement('option');
-  // optionタグのテキストをxに設定する
+  const option = document.createElement('option');
   option.text = value;
-  // optionタグのvalueをxに設定する
   option.value = value;
-  // selectタグの子要素にoptionタグを追加する
   select.appendChild(option);
 };
 
