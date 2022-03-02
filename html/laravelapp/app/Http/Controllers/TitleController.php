@@ -72,4 +72,20 @@ class TitleController extends Controller
 
     return json_encode($a[2]);
   }
+
+  public function check($id, Request $request)
+  {
+    $m = Title::find($id);
+    if (!$m) {
+      $this->utilService->throwHttpResponseException("id: $id は存在しません。");
+    }
+
+    $full_text = $request->full_text;
+    if ($full_text !== $m->text) {
+      $this->utilService->throwHttpResponseException("id: $id, full_text: $full_text の組は存在しません。");
+    }
+
+    $msg = "id: $id, full_text: $full_text";
+    return json_encode($msg);
+  }
 }
