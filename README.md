@@ -1,13 +1,12 @@
 ## デプロイする手順
 
-1. `make deploy` を実行する
-   - ec2 にもデプロイ可能
+1. `make init` を実行する
    - コンテナが起動すると port80 で待ち受ける
 
 ## 停止する手順
 
-1. `make deploy-down` を実行する
+1. `make down` を実行する
 
 ## 停止した後に起動する手順
 
-1. `make deploy-up` を実行する
+1. `make up` を実行する
