@@ -42,3 +42,5 @@ Route::group(['middleware' => ['RequestFilter']], function () {
 Route::get('/maxnum', 'TitleController@maxnum');
 Route::get('/first/{id}', 'TitleController@first');
 Route::get('/second/{id}', 'TitleController@second');
+Route::get('/third/{id}', 'TitleController@third');
+Route::get('/check/{id}', 'TitleController@check');
