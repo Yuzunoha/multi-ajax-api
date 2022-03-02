@@ -24,7 +24,6 @@ const init = async () => {
   for (let i = 1; i <= maxnum; i++) {
     addOption(select1, i);
   }
-  await run();
 };
 
 const run = async () => {
