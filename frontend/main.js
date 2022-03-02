@@ -161,7 +161,6 @@ const init = () => {
 const fetchJson = (path, params = {}) => {
   const queryParams = new URLSearchParams(params);
   const url = `${host}/${path}?${queryParams}`;
-  p(url);
   return fetch(url, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
@@ -171,8 +170,10 @@ const fetchJson = (path, params = {}) => {
 const run = async () => {
   const id = select1.value;
   const path = `first/${id}`;
-  const json = await fetchJson(path);
-  result1.textContent = json;
+  const delimiter = await fetchJson('delimiter');
+  const firstJson = await fetchJson(path);
+
+  p(delimiter, firstJson);
 };
 
 //Ajaxで情報を取得
