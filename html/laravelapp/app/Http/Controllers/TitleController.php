@@ -88,7 +88,7 @@ class TitleController extends Controller
       $this->utilService->throwHttpResponseException("id: $id, full_text: $full_text の組は存在しません。");
     }
 
-    $msg = "id: $id, full_text: $full_text";
+    $msg = "第${id}話「${full_text}」";
     return json_encode($msg);
   }
 }
