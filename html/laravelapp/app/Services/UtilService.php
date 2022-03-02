@@ -38,9 +38,4 @@ class UtilService
 
     throw new HttpResponseException($res);
   }
-
-  public function successResponse(string $message)
-  {
-    return ['status' => 200, 'message' => $message];
-  }
 }

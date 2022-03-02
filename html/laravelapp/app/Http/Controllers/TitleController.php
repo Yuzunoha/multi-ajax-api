@@ -24,7 +24,7 @@ class TitleController extends Controller
   {
     $m = Title::find($id);
     if ($m) {
-      return $this->utilService->successResponse($m->text);
+      return json_encode($m->text);
     }
     $this->utilService->throwHttpResponseException("id $id は存在しません。");
   }
@@ -34,7 +34,7 @@ class TitleController extends Controller
     return $request;
     $m = Title::find($id);
     if ($m) {
-      return $this->utilService->successResponse($m->text);
+      return json_encode($m->text);
     }
     $this->utilService->throwHttpResponseException("id $id は存在しません。");
   }
