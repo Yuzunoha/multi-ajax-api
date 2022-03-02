@@ -23,19 +23,23 @@ class TitleController extends Controller
   public function first($id)
   {
     $m = Title::find($id);
-    if ($m) {
-      return json_encode($m->text);
+    if (!$m) {
+      $this->utilService->throwHttpResponseException("id: $id は存在しません。");
     }
-    $this->utilService->throwHttpResponseException("id $id は存在しません。");
+    return json_encode($m->text);
   }
 
   public function second($id, Request $request)
   {
-    return $request;
     $m = Title::find($id);
-    if ($m) {
-      return json_encode($m->text);
+    if (!$m) {
+      $this->utilService->throwHttpResponseException("id: $id は存在しません。");
     }
-    $this->utilService->throwHttpResponseException("id $id は存在しません。");
+    $first_text = $request->first_text;
+    $a = explode('×', $m->text);
+    if ($a[0] !== $first_text) {
+      $this->utilService->throwHttpResponseException("id: $id, first_text: $first_text の組は存在しません。");
+    }
+    return json_encode($a[1]);
   }
 }
