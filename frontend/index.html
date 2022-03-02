@@ -1,25 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-</head>
-
-<body onLoad="run()">
-  <select id="city" onchange="run()">
-    <option id="selection" value="London" selected>ロンドン</option>
-    <option id="selection" value="Tokyo">東京</option>
-    <option id="selection" value="Paris">パリ</option>
-    <option id="selection" value="New York">ニューヨーク</option>
-    <option id="selection" value="Indonesia">インドネシア</option>
-  </select>
-  <p>
-  <div id="weather"></div>
-  <div>気温 <span id="temperature"></span>℃</div>
-  <div>湿度 <span id="humidity"></span>%</div>
-  </p>
-  <script type="text/javascript" src="main.js"></script>
-</body>
-
+  <body onLoad="run()">
+    <select id="select1" onchange="run()">
+      <option id="selection" value="1" selected>1</option>
+      <option id="selection" value="2" selected>2</option>
+      <option id="selection" value="3" selected>3</option>
+    </select>
+    <p id="result1"></p>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
 </html>
