@@ -10,13 +10,6 @@ const addOption = (select, value) => {
   select.appendChild(option);
 };
 
-const init = () => {
-  const num = 24;
-  for (let i = 1; i <= num; i++) {
-    addOption(select1, i);
-  }
-};
-
 const fetchJson = (path, params = {}) => {
   const queryParams = new URLSearchParams(params);
   const url = `${host}/${path}?${queryParams}`;
@@ -24,6 +17,14 @@ const fetchJson = (path, params = {}) => {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   }).then((res) => res.json());
+};
+
+const init = async () => {
+  const maxnum = await fetchJson('maxnum');
+  for (let i = 1; i <= maxnum; i++) {
+    addOption(select1, i);
+  }
+  await run();
 };
 
 const run = async () => {
