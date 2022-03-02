@@ -15,6 +15,11 @@ class TitleController extends Controller
     $this->utilService = $utilService;
   }
 
+  public function delimiter()
+  {
+    return json_encode('×');
+  }
+
   public function maxnum()
   {
     return count(Title::all());

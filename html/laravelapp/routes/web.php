@@ -39,6 +39,8 @@ Route::group(['middleware' => ['RequestFilter']], function () {
   });
 });
 
+
+Route::get('/delimiter', 'TitleController@delimiter');
 Route::get('/maxnum', 'TitleController@maxnum');
 Route::get('/first/{id}', 'TitleController@first');
 Route::get('/second/{id}', 'TitleController@second');
