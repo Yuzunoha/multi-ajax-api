@@ -31,7 +31,10 @@ class TitleController extends Controller
     if (!$m) {
       $this->utilService->throwHttpResponseException("id: $id は存在しません。");
     }
-    return json_encode($m->text);
+
+    $a = explode('×', $m->text);
+
+    return json_encode($a[0]);
   }
 
   public function second($id, Request $request)
