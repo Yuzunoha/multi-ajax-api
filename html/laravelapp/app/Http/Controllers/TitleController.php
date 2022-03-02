@@ -15,6 +15,11 @@ class TitleController extends Controller
     $this->utilService = $utilService;
   }
 
+  public function maxnum()
+  {
+    return count(Title::all());
+  }
+
   public function first($id)
   {
     $m = Title::find($id);
